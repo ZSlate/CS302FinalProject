@@ -6,4 +6,8 @@
 //  Copyright © 2020 School Work. All rights reserved.
 //
 
-#include <stdio.h>
+#ifndef Graph_cpp
+#define Graph_cpp
+#include "Graph.h"
+
+#endif /* Graph_cpp */

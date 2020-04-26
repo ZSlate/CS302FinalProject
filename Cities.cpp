@@ -6,4 +6,8 @@
 //  Copyright © 2020 School Work. All rights reserved.
 //
 
-#include <stdio.h>
+#ifndef Cities_cpp
+#define Cities_cpp
+#include "Cities.h"
+
+#endif /* Cities_cpp */

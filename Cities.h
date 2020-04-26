@@ -8,6 +8,20 @@
 
 #ifndef Cities_h
 #define Cities_h
+#define MPG 40
+#include "Node.h"
 
+template <class T>
+class Cities
+{
+    
+private:
+    Node<T>* start;
+    
+    
+public:
+    
+    
+};
 
 #endif /* Cities_h */
