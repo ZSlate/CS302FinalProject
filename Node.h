@@ -20,19 +20,20 @@ class Node
     
 private:
     T item; // A data item
-    Node<T>* left; // Point to left node
-    Node<T>* right; // Point to right node
-    
+    bool seen;
+    //stack
+    Node<T>* list; // Point to list node
+
 public:
     Node();
     Node(const T& anItem);
     Node(const T& anItem, Node<T>* nextNodePtr);
     void setItem(const T& anItem);
-    void setLeft(Node<T>* nextNodePtr);
-    void setRight(Node<T>* nextNodePtr);
+    void setList(Node<T>* nextNodePtr);
+    void setBool(bool newSeen);
     T getItem() const;
-    Node<T>* getLeft() const;
-    Node<T>* getRight() const;
+    bool getBool();
+    Node<T>* getList() const;
     
 };
 #include "Node.cpp"

@@ -11,17 +11,17 @@
 #include "Node.h"
 
 template<class T>
-Node<T>::Node() : left(nullptr), right(nullptr)
+Node<T>::Node() : list(nullptr)
 {
 }
 
 template<class T>
-Node<T>::Node(const T& anItem) : item(anItem), left(nullptr), right(nullptr)
+Node<T>::Node(const T& anItem) : item(anItem), list(nullptr)
 {
 }
 
 template<class T>
-Node<T>::Node(const T& anItem, Node<T>* nextNodePtr) : item(anItem), left(nextNodePtr), right(nextNodePtr)
+Node<T>::Node(const T& anItem, Node<T>* nextNodePtr) : item(anItem), list(nextNodePtr)
 {
 }
 
@@ -32,15 +32,15 @@ void Node<T>::setItem(const T& anItem)
 }
 
 template<class T>
-void Node<T>::setLeft(Node<T>* nextNodePtr)
+void Node<T>::setList(Node<T>* nextNodePtr)
 {
-    left = nextNodePtr;
+    list = nextNodePtr;
 }
 
 template<class T>
-void Node<T>::setRight(Node<T>* nextNodePtr)
+void Node<T>::setBool(bool newSeen)
 {
-    right = nextNodePtr;
+    seen = newSeen;
 }
 
 template<class T>
@@ -50,15 +50,15 @@ T Node<T>::getItem() const
 }
 
 template<class T>
-Node<T>* Node<T>::getLeft() const
+bool Node<T>::getBool()
 {
-    return left;
+    return seen;
 }
 
 template<class T>
-Node<T>* Node<T>::getRight() const
+Node<T>* Node<T>::getList() const
 {
-    return right;
+    return list;
 }
 
 #endif /* Node_cpp */
