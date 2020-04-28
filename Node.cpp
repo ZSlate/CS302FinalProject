@@ -38,21 +38,9 @@ void Node<T>::setList(Node<T>* nextNodePtr)
 }
 
 template<class T>
-void Node<T>::setBool(bool newSeen)
-{
-    seen = newSeen;
-}
-
-template<class T>
 T Node<T>::getItem() const
 {
     return item;
-}
-
-template<class T>
-bool Node<T>::getBool()
-{
-    return seen;
 }
 
 template<class T>

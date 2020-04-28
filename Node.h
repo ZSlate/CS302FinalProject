@@ -8,20 +8,23 @@
 
 #ifndef Node_h
 #define Node_h
+#include <iostream>
 
 template <class T>
 class Cities;
+
+template <class T>
+class LinkedStack;
 
 template<class T>
 class Node
 {
     
     friend class Cities<T>;
+    friend class LinkedStack<T>;
     
 private:
     T item; // A data item
-    bool seen;
-    //stack
     Node<T>* list; // Point to list node
 
 public:
@@ -30,9 +33,7 @@ public:
     Node(const T& anItem, Node<T>* nextNodePtr);
     void setItem(const T& anItem);
     void setList(Node<T>* nextNodePtr);
-    void setBool(bool newSeen);
     T getItem() const;
-    bool getBool();
     Node<T>* getList() const;
     
 };

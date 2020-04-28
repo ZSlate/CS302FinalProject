@@ -16,7 +16,7 @@ class Cities
 {
     
 private:
-    Node<T>* start;
+    std::string name;
     
     
 public:
