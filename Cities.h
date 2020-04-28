@@ -17,10 +17,11 @@ class Cities
     
 private:
     std::string name;
-    
+    int distance[10]; //this array is intended to hold the distance in miles of all cities linked to this city
     
 public:
     
+    std::string getName(); //returns name of the city for the purpose of identifying them when searching through the graph
     
 };
 
