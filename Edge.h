@@ -21,4 +21,5 @@ class Edge{
      void setStart(T Insert_Start);
      void setEnd(T Insert_End);
    };
-   #endif  //#include Edge.cpp
+   #include Edge.cpp
+   #endif  
