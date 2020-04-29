@@ -1,6 +1,6 @@
 /*Alan Garcia, 04-28-20, class used to hold the edges of the a graph for use in operations*/
 
-#include Node.h
+#include "Node.h"
 
 #ifndef EDGE_H
 #define EDGE_H
@@ -21,5 +21,5 @@ class Edge{
      void setStart(T Insert_Start);
      void setEnd(T Insert_End);
    };
-   #include Edge.cpp
+   #include "Edge.cpp"
    #endif  
