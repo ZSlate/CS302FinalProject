@@ -9,6 +9,7 @@
 #ifndef Graph_h
 #define Graph_h
 #include "Node.h"
+#include "Edge.h"
 template <class T>
 class Graph
 {

@@ -18,9 +18,9 @@ class Cities
 private:
     std::string name;
     
-    
 public:
     
+    std::string getName(); //returns name of the city for the purpose of identifying them when searching through the graph
     
 };
 
