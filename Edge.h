@@ -13,7 +13,7 @@ class Edge{
     int end;
    public:
      Edge();
-     Edge(T Insert_Start, T Insert_End, int Insert_Weight);
+     Edge(int Insert_Start, int Insert_End, int Insert_Weight);
      int getWeight() const;
      int getStart() const;
      int getEnd() const;
