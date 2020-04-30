@@ -15,13 +15,14 @@ class Graph
 {
     
 private:
-    bool seen;
-    
+
     
 public:
-    bool getBool();
-    void setBool(bool newSeen);
-    
+    int numberOfNodes;
+    Node<T>** head;
+    Graph(Edge<T> edges[], int numberOfEdges, int numberOfVertices);
+    ~Graph();
+    void displayAdjacencyList();
 };
 //bool seen
 

@@ -1,5 +1,7 @@
 /*Alan Garcia, 04-28-20, Source file for the Edge class*/
 
+#ifndef EDGE_CPP
+#define EDGE_CPP
 #include "Edge.h"
 
 template <class T>
@@ -42,3 +44,4 @@ Edge<T>::Edge()
     end=Insert_End;
     }
   
+   #endif

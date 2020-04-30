@@ -25,16 +25,20 @@ class Node
     
 private:
     T item; // A data item
-    Node<T>* list; // Point to list node
+    int identifier;
+    Node<T>* next; // Point to list node
 
 public:
     Node();
     Node(const T& anItem);
-    Node(const T& anItem, Node<T>* nextNodePtr);
+    Node(const T& anItem, int newIden, Node<T>* nextNodePtr);
+    void copyData(const T& anItem, int newIden, Node<T>* nextNodePtr);
     void setItem(const T& anItem);
-    void setList(Node<T>* nextNodePtr);
+    void setNext(Node<T>* nextNodePtr);
     T getItem() const;
-    Node<T>* getList() const;
+    Node<T>* getNext() const;
+    void setIdentifier(int newIden);
+    int getIdentifier() const;
     
 };
 #include "Node.cpp"

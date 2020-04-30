@@ -8,6 +8,7 @@
 
 #ifndef FinalProject_h
 #define FinalProject_h
-
+#include <iostream>
+#include "Graph.h"
 
 #endif /* FinalProject_h */

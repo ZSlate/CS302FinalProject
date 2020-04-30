@@ -11,18 +11,26 @@
 #include "Node.h"
 
 template<class T>
-Node<T>::Node() : list(nullptr)
+Node<T>::Node() : next(nullptr)
 {
 }
 
 template<class T>
-Node<T>::Node(const T& anItem) : item(anItem), list(nullptr)
+Node<T>::Node(const T& anItem) : item(anItem), next(nullptr)
 {
 }
 
 template<class T>
-Node<T>::Node(const T& anItem, Node<T>* nextNodePtr) : item(anItem), list(nextNodePtr)
+Node<T>::Node(const T& anItem, int newIden, Node<T>* nextNodePtr) : item(anItem), identifier(newIden), next(nextNodePtr)
 {
+}
+
+template<class T>
+void Node<T>::copyData(const T& anItem, int newIden, Node<T>* nextNodePtr)
+{
+    setItem(anItem);
+    setIdentifier(newIden);
+    setNext(nextNodePtr);
 }
 
 template<class T>
@@ -32,9 +40,9 @@ void Node<T>::setItem(const T& anItem)
 }
 
 template<class T>
-void Node<T>::setList(Node<T>* nextNodePtr)
+void Node<T>::setNext(Node<T>* nextNodePtr)
 {
-    list = nextNodePtr;
+    next = nextNodePtr;
 }
 
 template<class T>
@@ -44,9 +52,23 @@ T Node<T>::getItem() const
 }
 
 template<class T>
-Node<T>* Node<T>::getList() const
+Node<T>* Node<T>::getNext() const
 {
-    return list;
+    return next;
 }
+
+template<class T>
+void Node<T>::setIdentifier(int newIden)
+{
+    identifier = newIden;
+}
+
+template<class T>
+int Node<T>::getIdentifier() const
+{
+    return identifier;
+}
+
+
 
 #endif /* Node_cpp */
