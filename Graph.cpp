@@ -44,65 +44,72 @@ Graph<T>::~Graph()
     for(std::size_t index = 0; index < numberOfNodes; index++)
     {
         delete[] head[index];
-        delete[] head;
+        //delete[] head;
     }
 }
 
 template <class T>
 void Graph<T>::displayAdjacencyList()
 {
-    for(std::size_t index = 0; head[index] != nullptr; index++)
+    
+    for(std::size_t index = 0; index < numberOfNodes; index++)
     {
-        std::cout << '(';
-        
-        switch (index)
+        Node<T>* temp = head[index];
+        while(temp != nullptr)
         {
-            case 0:
-                std::cout << "Reno";
-                break;
-            case 1:
-                std::cout << "Salt Lake City";
-                break;
-            case 2:
-                std::cout << "Las Vegas";
-                break;
-            case 3:
-                std::cout << "San Fransisco";
-                break;
-            case 4:
-                std::cout << "Seattle";
-                break;
-            default:
-                break;
+            std::cout << '(';
+            
+            switch (index)
+            {
+                case 0:
+                    std::cout << "Reno";
+                    break;
+                case 1:
+                    std::cout << "Salt Lake City";
+                    break;
+                case 2:
+                    std::cout << "Las Vegas";
+                    break;
+                case 3:
+                    std::cout << "San Fransisco";
+                    break;
+                case 4:
+                    std::cout << "Seattle";
+                    break;
+                default:
+                    break;
+            }
+            
+            std::cout << ", ";
+            
+            switch (temp->getIdentifier())
+            {
+                case 0:
+                    std::cout << "Reno";
+                    break;
+                case 1:
+                    std::cout << "Salt Lake City";
+                    break;
+                case 2:
+                    std::cout << "Las Vegas";
+                    break;
+                case 3:
+                    std::cout << "San Fransisco";
+                    break;
+                case 4:
+                    std::cout << "Seattle";
+                    break;
+                default:
+                    break;
+            }
+            
+            std::cout << ", " << temp->getItem() << ")   ";
+            temp = temp->getNext();
+            
         }
-        
-        std::cout << ", ";
-        
-        switch (head[index]->getIdentifier())
-        {
-            case 0:
-                std::cout << "Reno";
-                break;
-            case 1:
-                std::cout << "Salt Lake City";
-                break;
-            case 2:
-                std::cout << "Las Vegas";
-                break;
-            case 3:
-                std::cout << "San Fransisco";
-                break;
-            case 4:
-                std::cout << "Seattle";
-                break;
-            default:
-                break;
-        }
-        
-        std::cout << ", " << head[index]->getItem() << ')';
-        head[index] = head[index]->getNext();
+        std::cout << std::endl;
     }
-    std::cout << std::endl;
+    
 }
 
 #endif /* Graph_cpp */

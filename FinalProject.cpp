@@ -33,11 +33,9 @@ int main(int argc, const char * argv[])
     
     Graph<int> cityGraph(cityEdges, numberOfEdges, numberOfVertices);
     
-//    for(std::size_t index = 0; index < numberOfVertices; index++)
-//    {
-//        
-//    }
-    cityGraph.displayAdjacencyList();
+cityGraph.displayAdjacencyList();
+
+    
     
     return 0;
 }
