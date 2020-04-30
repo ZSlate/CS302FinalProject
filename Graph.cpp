@@ -13,7 +13,6 @@
 template <class T>
 Graph<T>::Graph(Edge<T> edges[], int numberOfEdges, int numberOfVertices)
 {
-    //Node<T>* tempNode = new Node<T>();
     head = new Node<T>*[numberOfVertices]();
     numberOfNodes = numberOfVertices;
     
@@ -24,12 +23,6 @@ Graph<T>::Graph(Edge<T> edges[], int numberOfEdges, int numberOfVertices)
     
     for(std::size_t index = 0; index < numberOfEdges; index++)
     {
-////        tempNode->copyData(edges[index].getWeight(), edges[index].getEnd(), head[edges[index].getStart()]);
-//        tempNode->setItem(edges[index].getWeight());
-//        tempNode->setIdentifier(edges[index].getEnd());
-//        tempNode->setNext(head[edges[index].getEnd()]);
-//        head[edges[index].getStart()] = tempNode;
-        
         int tempStart = edges[index].getStart();
         int tempEnd = edges[index].getEnd();
         int tempWeight = edges[index].getWeight();
@@ -44,8 +37,8 @@ Graph<T>::~Graph()
     for(std::size_t index = 0; index < numberOfNodes; index++)
     {
         delete[] head[index];
-        //delete[] head;
     }
+    delete[] head;
 }
 
 template <class T>

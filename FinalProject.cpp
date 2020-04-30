@@ -4,7 +4,7 @@
 int main(int argc, const char * argv[])
 {
     int numberOfVertices = 5;
-    Edge<int> cityEdges[9];
+    Edge<int> cityEdges[8];
     cityEdges[0].setStart(3);
     cityEdges[0].setEnd(4);
     cityEdges[0].setWeight(751);
@@ -32,9 +32,8 @@ int main(int argc, const char * argv[])
     int numberOfEdges = sizeof(cityEdges)/sizeof(cityEdges[0]);
     
     Graph<int> cityGraph(cityEdges, numberOfEdges, numberOfVertices);
-    
-cityGraph.displayAdjacencyList();
-
+    cityGraph.displayAdjacencyList();
+    std::cout << std::endl;
     
     
     return 0;
