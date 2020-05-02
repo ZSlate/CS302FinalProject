@@ -15,14 +15,15 @@ class Graph
 {
     
 private:
-
-    
-public:
     int numberOfNodes;
     Node<T>** head;
+    
+public:
+    
     Graph(Edge<T> edges[], int numberOfEdges, int numberOfVertices);
     ~Graph();
     void displayAdjacencyList();
+    T traverse(int version, Node<T>* vertex, T total);
 };
 //bool seen
 
