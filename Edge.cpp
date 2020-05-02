@@ -6,11 +6,11 @@
 
 template <class T>
 Edge<T>::Edge()
-  :weight(0){
+  :weight(0), start(0), end(0){
   }
   
   template <class T>
-  Edge<T>::Edge(T Insert_Start, T Insert_End, int Insert_Weight)
+  Edge<T>::Edge(int Insert_Start, int Insert_End, int Insert_Weight)
     :start(Insert_Start), end(Insert_End), weight(Insert_Weight){
     }
     
@@ -20,12 +20,12 @@ Edge<T>::Edge()
     }
     
   template <class T>
-  T Edge<T>::getStart() const{
+  int Edge<T>::getStart() const{
     return start;
     }
   
   template <class T>
-  T Edge<T>::getEnd() const{
+  int Edge<T>::getEnd() const{
     return end;
     }
     
@@ -35,12 +35,12 @@ Edge<T>::Edge()
     }
     
   template <class T>
-  void Edge<T>::setStart(T Insert_Start){
+  void Edge<T>::setStart(int Insert_Start){
     start=Insert_Start;
     }
     
   template <class T>
-  void Edge<T>::setEnd(T Insert_End){
+  void Edge<T>::setEnd(int Insert_End){
     end=Insert_End;
     }
   

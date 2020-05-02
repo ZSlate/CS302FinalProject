@@ -9,17 +9,17 @@ template <class T>
 class Edge{
   private:
     int weight;
-    T start;
-    T end;
+    int start;
+    int end;
    public:
      Edge();
-     Edge(T Insert_Start, T Insert_End, int Insert_Weight);
+     Edge(int Insert_Start, int Insert_End, int Insert_Weight);
      int getWeight() const;
-     T getStart() const;
-     T getEnd() const;
+     int getStart() const;
+     int getEnd() const;
      void setWeight(int Insert_Weight);
-     void setStart(T Insert_Start);
-     void setEnd(T Insert_End);
+     void setStart(int Insert_Start);
+     void setEnd(int Insert_End);
    };
    #include "Edge.cpp"
    #endif  
