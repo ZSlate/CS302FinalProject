@@ -107,7 +107,7 @@ void Graph<T>::displayAdjacencyList()
 
 template <class T>
 T Graph<T>::traverse(int version, Node<T>* vertex, T total){
-    if(vertex->getId()==head[0]->getId()){
+    if(vertex->getIdentifier()==head[0]->getIdentifier()){
         
     }
 }
