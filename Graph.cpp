@@ -176,7 +176,7 @@ T Graph<T>::traverse(int * version, Node<T>* vertex, T total){
         Node<T>* curr=vertex->getNext();
         int Nodes=0;
         bool breakcase=false;
-        for(int index=0; breakcase==true||index!=version; curr=curr->getNext()){
+        for(int index=0; breakcase==true||index!=*version; curr=curr->getNext()){
             if(seen[curr->getIdentifier()]==false){
                 ++index;
             }
