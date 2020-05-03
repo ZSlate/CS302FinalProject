@@ -17,7 +17,7 @@ class Graph
 private:
     int numberOfNodes;
     Node<T>** head;
-    
+    bool seen[10];
 public:
     
     Graph(Edge<T> edges[], int numberOfEdges, int numberOfVertices);
