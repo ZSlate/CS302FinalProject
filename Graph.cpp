@@ -33,6 +33,8 @@ Graph<T>::Graph(Edge<T> edges[], int numberOfEdges, int numberOfVertices)
 }
 
 template <class T>
+Node<T> makeAdjList(
+template <class T>
 Graph<T>::~Graph()
 {
     for(std::size_t index = 0; index < numberOfNodes; index++)
@@ -113,6 +115,7 @@ T Graph<T>::traverse(int version, Node<T>* vertex, T total){
             for(int index=0; index<10; ++index){
                 seen[index]=false;
             }
+            total=total+vertex->getData();
             return total;
         }
         else{
@@ -120,4 +123,17 @@ T Graph<T>::traverse(int version, Node<T>* vertex, T total){
     }
 }
 
+template <class T>
+int Graph<T>::getAdjecentNodes(Node<T>* vertex){
+    int total;
+    for(Node<T>* curr=head[vertex]; curr!=nullptr;curr=curr->getNext()){
+        ++total;
+    }
+    return total;
+}
+    
+template <class T>
+int Graph<T>::getNumberOfNodes() const{
+    return numberOfNodes;
+}
 #endif /* Graph_cpp */
