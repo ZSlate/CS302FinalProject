@@ -22,18 +22,25 @@ Graph<T>::Graph(Edge<T> edges[], int numberOfEdges, int numberOfVertices)
         seen[index] = false;
     }
     
-    for(std::size_t index = 0; index < numberOfEdges; index++)
+    for(std::size_t index = 0; index < numberOfVertices; index++)
     {
+        head[index] = new Node<T>(0, index, nullptr);
+        makeAdjList(head[index], index, edges, numberOfEdges);
         int tempStart = edges[index].getStart();
         int tempEnd = edges[index].getEnd();
         int tempWeight = edges[index].getWeight();
         Node<T>* tempNode = new Node<T>(tempWeight, tempEnd, head[tempStart]);
-        head[tempStart] = tempNode;
+        head[index] = temp;
     }
 }
 
 template <class T>
-Node<T> makeAdjList(
+Node<T>* Graph<T>::makeAdjList(Node<T>* vertex, int ID, Egde<T> edges[], int numberOfEdges){
+    Node<T> * curr=vertex;
+    for(int index = 0; index < numberOfEdges; ++index){
+        if(edges[index].getStart()==ID){
+            Node<T>* tempNode = new Node<T>(edges.getWeight(), edges.getEnd(), nullptr);
+            curr->getNext()=
 template <class T>
 Graph<T>::~Graph()
 {
