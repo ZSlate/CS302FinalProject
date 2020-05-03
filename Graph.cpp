@@ -26,21 +26,28 @@ Graph<T>::Graph(Edge<T> edges[], int numberOfEdges, int numberOfVertices)
     {
         head[index] = new Node<T>(0, index, nullptr);
         makeAdjList(head[index], index, edges, numberOfEdges);
-        int tempStart = edges[index].getStart();
-        int tempEnd = edges[index].getEnd();
-        int tempWeight = edges[index].getWeight();
-        Node<T>* tempNode = new Node<T>(tempWeight, tempEnd, head[tempStart]);
-        head[index] = temp;
     }
 }
 
 template <class T>
-Node<T>* Graph<T>::makeAdjList(Node<T>* vertex, int ID, Egde<T> edges[], int numberOfEdges){
+vois Graph<T>::makeAdjList(Node<T>* vertex, int ID, Egde<T> edges[], int numberOfEdges){
     Node<T> * curr=vertex;
     for(int index = 0; index < numberOfEdges; ++index){
         if(edges[index].getStart()==ID){
             Node<T>* tempNode = new Node<T>(edges.getWeight(), edges.getEnd(), nullptr);
-            curr->getNext()=
+            curr->setNext(tempNode);
+            curr=curr->getNext();
+        }
+        else{
+            if(edges[index].getEnd()==ID){
+                Node<T>* tempNode = new Node<T>(edges.getWeight(), edges.getStart(), nullptr);
+                curr->setNext(tempNode);
+                curr=curr->getNext();
+            }
+        }
+    }
+}
+
 template <class T>
 Graph<T>::~Graph()
 {
