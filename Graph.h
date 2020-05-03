@@ -10,6 +10,7 @@
 #define Graph_h
 #include "Node.h"
 #include "Edge.h"
+#include "Stack.h"
 template <class T>
 class Graph
 {
@@ -18,6 +19,7 @@ private:
     int numberOfNodes;
     Node<T>** head;
     bool seen[10];
+    stack list;
 public:
     
     Graph(Edge<T> edges[], int numberOfEdges, int numberOfVertices);
