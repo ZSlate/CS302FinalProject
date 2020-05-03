@@ -31,18 +31,47 @@ Graph<T>::Graph(Edge<T> edges[], int numberOfEdges, int numberOfVertices)
 
 template <class T>
 vois Graph<T>::makeAdjList(Node<T>* vertex, int ID, Egde<T> edges[], int numberOfEdges){
-    Node<T> * curr=vertex;
     for(int index = 0; index < numberOfEdges; ++index){
         if(edges[index].getStart()==ID){
             Node<T>* tempNode = new Node<T>(edges.getWeight(), edges.getEnd(), nullptr);
-            curr->setNext(tempNode);
-            curr=curr->getNext();
+            Node<T>* curr=vertex->getNext();
+            if(vertex->getNext()==nullptr){
+                vertext->setNext(tempNode);
+            }
+            else{
+                while(curr->getNext()!=nullptr||curr->getNext()->getIdentifier()>ID){
+                    curr=curr->getNext();
+                }
+                if(curr->getNext()==nullptr){
+                    curr->setNext(tempNode);
+                }
+                else{
+                    Node<T>* temp= curr->getNext();
+                    curr->setNext(tempNode);
+                    curr->getNext()->setNext(temp);
+                }
+            }
         }
         else{
             if(edges[index].getEnd()==ID){
                 Node<T>* tempNode = new Node<T>(edges.getWeight(), edges.getStart(), nullptr);
-                curr->setNext(tempNode);
-                curr=curr->getNext();
+                Node<T>* curr=vertex->getNext();
+                if(vertex->getNext()==nullptr){
+                    vertext->setNext(tempNode);
+                }
+                else{
+                    while(curr->getNext()!=nullptr||curr->getNext()->getIdentifier()>ID){
+                        curr=curr->getNext();
+                    }
+                    if(curr->getNext()==nullptr){
+                        curr->setNext(tempNode);
+                    }
+                    else{
+                        Node<T>* temp= curr->getNext();
+                        curr->setNext(tempNode);
+                        curr->getNext()->setNext(temp);
+                    }
+                }
             }
         }
     }
@@ -123,7 +152,7 @@ void Graph<T>::displayAdjacencyList()
 }
 
 template <class T>
-T Graph<T>::traverse(int version, Node<T>* vertex, T total){
+T Graph<T>::traverse(int * version, Node<T>* vertex, T total){
     if(vertex->getIdentifier()==head[0]->getIdentifier()){
         if(seen[head[0]->getIdentifier()]){
             for(int index=0; index<10; ++index){
@@ -133,8 +162,42 @@ T Graph<T>::traverse(int version, Node<T>* vertex, T total){
             return total;
         }
         else{
-            
+            seen[0]=true;
+            Node<T>* curr=head[0];
+            while(curr->getIdentifier()!=*version){
+               curr=curr->getNext();
+            }
+            total=traverse(++version, head[curr->getIdentifier()], total);
+        }
     }
+    else{
+        seen[vertex->getIdentifier()];
+        total=total+vertex->getData();
+        Node<T>* curr=vertex->getNext();
+        int Nodes=0;
+        bool breakcase=false;
+        for(int index=0; breakcase==true||index!=version; curr=curr->getNext()){
+            if(seen[curr->getIdentifier()]==false){
+                ++index;
+            }
+            ++Nodes;
+            if(Nodes==getAdjecentNodes(vertex)){
+                if(index==0){
+                    breakcase=true;
+                }
+                else{
+                    curr=vertex;
+                }
+            }
+        }
+        if(breakcase==true){
+            total=traverse(version, head[0], total);
+        }
+        else{
+            total=traverse(++version, head[curr->getIdentifier()],total);
+        }
+    }
+    return total;
 }
 
 template <class T>
