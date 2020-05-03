@@ -23,8 +23,8 @@ private:
 public:
     
     Graph(Edge<T> edges[], int numberOfEdges, int numberOfVertices);
-    void makeAdjList(Node<T>* vertex, int ID, Edge<T> edges[], int numberOfEdges);
     ~Graph();
+    void makeAdjList(Node<T>* vertex, int ID, Edge<T> edges[], int numberOfEdges);
     void displayAdjacencyList();
     T traverse(int version, Node<T>* vertex, T total);
     int getAdjecentNodes(Node<T>* vertex);
