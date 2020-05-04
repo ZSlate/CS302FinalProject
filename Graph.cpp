@@ -159,6 +159,9 @@ T Graph<T>::traverse(int * version, Node<T>* vertex, T total){
                 seen[index]=false;
             }
             total=total+vertex->getData();
+            std::cout << "and ";
+            displayHead(head[0]);
+            std::cout << std::endl;
             return total;
         }
         else{
@@ -167,10 +170,14 @@ T Graph<T>::traverse(int * version, Node<T>* vertex, T total){
             while(curr->getIdentifier()!=*version){
                curr=curr->getNext();
             }
+            std::cout << "traversering from ";
+            displayHead(head[0]);
             total=traverse(++version, head[curr->getIdentifier()], total);
         }
     }
     else{
+        std::cout << "to ";
+        displayHead(vertex);
         seen[vertex->getIdentifier()];
         total=total+vertex->getData();
         Node<T>* curr=vertex->getNext();
@@ -212,5 +219,28 @@ int Graph<T>::getAdjecentNodes(Node<T>* vertex){
 template <class T>
 int Graph<T>::getNumberOfNodes() const{
     return numberOfNodes;
+}
+
+template <class T>
+void Graph<T>::displayHead(Node<T>* vertex) const{
+    switch(vertex->getIdentifier()){
+        case 0:
+            std::cout << "Reno ";
+            break;
+        case 1:
+            std::cout << "Salt Lake City ";
+            break;
+        case 2:
+            std::cout << "Las Vegas ";
+            break;
+        case 3:
+            std::cout << "San Fransisco ";
+            break;
+         case 4:
+            std::cout << "Seattle ";
+            break;
+         default:
+             break;
+     }
 }
 #endif /* Graph_cpp */
