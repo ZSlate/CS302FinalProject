@@ -1,7 +1,7 @@
 TARGET = FinalProject
 LIBS = -lm  #List of external libraries required to link against (here m is the math Library, just a placeholder)
-HEADERS = Node.h Edge.h Graph.h FinalProject.h  #List of all header files
-SRCS = Node.cpp Edge.cpp Graph.cpp FinalProject.cpp #List of all source files
+HEADERS = Node.h Edge.h Graph.h LinkedStack.h FinalProject.h  #List of all header files
+SRCS = Node.cpp Edge.cpp Graph.cpp LinkedStack.cpp FinalProject.cpp #List of all source files
 OBJECTS := $(patsubst %.cpp,%.o,$(SRCS))  #Creates a list of object files (.o) for every entry under SRCS (source files)
 CXX = g++ #compiler command to be used
 CXX_FLAGS = -Wall -std=c++14 #compilation flags to be used (here std=c++11 is just for reference, not necessary)

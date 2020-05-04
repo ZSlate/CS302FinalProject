@@ -19,14 +19,14 @@ private:
     int numberOfNodes;
     Node<T>** head;
     bool seen[10];
-    LinkedStack list;
+    LinkedStack<T> list;
 public:
     
     Graph(Edge<T> edges[], int numberOfEdges, int numberOfVertices);
     ~Graph();
     void makeAdjList(Node<T>* vertex, int ID, Edge<T> edges[], int numberOfEdges);
     void displayAdjacencyList();
-    T traverse(int version, Node<T>* vertex, T total);
+    T traverse(int* version, Node<T>* vertex, T total);
     int getAdjecentNodes(Node<T>* vertex);
     int getNumberOfNodes() const;
 };

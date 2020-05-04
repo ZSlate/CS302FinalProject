@@ -95,7 +95,7 @@ T LinkedStack<T>::pop()
         temp = nullptr;
         return returner;
     }
-    return NULL;
+    return 0;
 }
 
 template <class T>

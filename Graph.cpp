@@ -30,13 +30,13 @@ Graph<T>::Graph(Edge<T> edges[], int numberOfEdges, int numberOfVertices)
 }
 
 template <class T>
-vois Graph<T>::makeAdjList(Node<T>* vertex, int ID, Egde<T> edges[], int numberOfEdges){
+void Graph<T>::makeAdjList(Node<T>* vertex, int ID, Edge<T> edges[], int numberOfEdges){
     for(int index = 0; index < numberOfEdges; ++index){
         if(edges[index].getStart()==ID){
-            Node<T>* tempNode = new Node<T>(edges.getWeight(), edges.getEnd(), nullptr);
+            Node<T>* tempNode = new Node<T>(edges[index].getWeight(), edges[index].getEnd(), nullptr);
             Node<T>* curr=vertex->getNext();
             if(vertex->getNext()==nullptr){
-                vertext->setNext(tempNode);
+                vertex->setNext(tempNode);
             }
             else{
                 while(curr->getNext()!=nullptr||curr->getNext()->getIdentifier()>ID){
@@ -54,10 +54,10 @@ vois Graph<T>::makeAdjList(Node<T>* vertex, int ID, Egde<T> edges[], int numberO
         }
         else{
             if(edges[index].getEnd()==ID){
-                Node<T>* tempNode = new Node<T>(edges.getWeight(), edges.getStart(), nullptr);
+                Node<T>* tempNode = new Node<T>(edges[index].getWeight(), edges[index].getStart(), nullptr);
                 Node<T>* curr=vertex->getNext();
                 if(vertex->getNext()==nullptr){
-                    vertext->setNext(tempNode);
+                    vertex->setNext(tempNode);
                 }
                 else{
                     while(curr->getNext()!=nullptr||curr->getNext()->getIdentifier()>ID){
