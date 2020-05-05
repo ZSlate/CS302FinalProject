@@ -8,7 +8,7 @@
 template <class T>
 class Edge{
   private:
-    int weight;
+    T weight;
     int start;
     int end;
    public:
