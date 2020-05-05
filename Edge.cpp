@@ -10,12 +10,12 @@ Edge<T>::Edge()
   }
   
   template <class T>
-  Edge<T>::Edge(int Insert_Start, int Insert_End, int Insert_Weight)
+  Edge<T>::Edge(int Insert_Start, int Insert_End, T Insert_Weight)
     :start(Insert_Start), end(Insert_End), weight(Insert_Weight){
     }
     
   template <class T>
-  int Edge<T>::getWeight() const{
+  T Edge<T>::getWeight() const{
     return weight;
     }
     
@@ -30,7 +30,7 @@ Edge<T>::Edge()
     }
     
   template <class T>
-  void Edge<T>::setWeight(int Insert_Weight){
+  void Edge<T>::setWeight(T Insert_Weight){
     weight=Insert_Weight;
     }
     
