@@ -35,7 +35,6 @@ void printCompleteAdjacencyList( AdjList &passedList, int &v )
             while(temp != passedList[index].end())
             {
                 std::cout << " -> " << temp->first << " (weight: " << temp->second << ')';
-                //printf(" -> %d (w:%d)", (*temp).first, (*temp).second);
                 ++temp;
             }
         }
