@@ -31,47 +31,18 @@ Graph<T>::Graph(Edge<T> edges[], int numberOfEdges, int numberOfVertices)
 
 template <class T>
 void Graph<T>::makeAdjList(Node<T>* vertex, int ID, Edge<T> edges[], int numberOfEdges){
+    Node<T>* curr=vertex;
     for(int index = 0; index < numberOfEdges; ++index){
         if(edges[index].getStart()==ID){
             Node<T>* tempNode = new Node<T>(edges[index].getWeight(), edges[index].getEnd(), nullptr);
-            Node<T>* curr=vertex->getNext();
-            if(vertex->getNext()==nullptr){
-                vertex->setNext(tempNode);
-            }
-            else{
-                while(curr->getNext()!=nullptr||curr->getNext()->getIdentifier()>ID){
-                    curr=curr->getNext();
-                }
-                if(curr->getNext()==nullptr){
-                    curr->setNext(tempNode);
-                }
-                else{
-                    Node<T>* temp= curr->getNext();
-                    curr->setNext(tempNode);
-                    curr->getNext()->setNext(temp);
-                }
-            }
+            curr->setNext(tempNode);
+            curr=curr->getNext();
         }
         else{
             if(edges[index].getEnd()==ID){
                 Node<T>* tempNode = new Node<T>(edges[index].getWeight(), edges[index].getStart(), nullptr);
+                curr->setNext(tempNode);
                 Node<T>* curr=vertex->getNext();
-                if(vertex->getNext()==nullptr){
-                    vertex->setNext(tempNode);
-                }
-                else{
-                    while(curr->getNext()!=nullptr||curr->getNext()->getIdentifier()>ID){
-                        curr=curr->getNext();
-                    }
-                    if(curr->getNext()==nullptr){
-                        curr->setNext(tempNode);
-                    }
-                    else{
-                        Node<T>* temp= curr->getNext();
-                        curr->setNext(tempNode);
-                        curr->getNext()->setNext(temp);
-                    }
-                }
             }
         }
     }
