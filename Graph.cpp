@@ -129,7 +129,7 @@ T Graph<T>::traverse(int * version, Node<T>* vertex, T total){
             for(int index=0; index<10; ++index){
                 seen[index]=false;
             }
-            total=total+vertex->getData();
+            total=total+vertex->getItem();
             std::cout << "and ";
             displayHead(head[0]);
             std::cout << std::endl;
@@ -150,7 +150,7 @@ T Graph<T>::traverse(int * version, Node<T>* vertex, T total){
         std::cout << "to ";
         displayHead(vertex);
         seen[vertex->getIdentifier()];
-        total=total+vertex->getData();
+        total=total+vertex->getItem();
         Node<T>* curr=vertex->getNext();
         int Nodes=0;
         bool breakcase=false;
