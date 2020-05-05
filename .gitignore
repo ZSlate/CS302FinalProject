@@ -2,3 +2,8 @@
 .DS_Store
 testPermute.cpp
 a.out
+*.o
+*.out
+a.out
+FinalProject
+a.out

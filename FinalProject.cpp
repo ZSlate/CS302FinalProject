@@ -32,7 +32,7 @@ int main(int argc, const char * argv[])
     int numberOfEdges = sizeof(cityEdges)/sizeof(cityEdges[0]);
     
     Graph<int> cityGraph(cityEdges, numberOfEdges, numberOfVertices);
-    //cityGraph.displayAdjacencyList();
+    cityGraph.displayAdjacencyList();
     std::cout << std::endl;
     
     
