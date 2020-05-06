@@ -198,6 +198,11 @@ int Graph<T>::getNumberOfNodes() const{
 }
 
 template <class T>
+Node<T>* Graph<T>::getRoot() const{
+    return head[0];
+}
+
+template <class T>
 void Graph<T>::displayHead(Node<T>* vertex) const{
     switch(vertex->getIdentifier()){
         case 0:
