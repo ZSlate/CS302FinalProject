@@ -29,6 +29,7 @@ public:
     T traverse(int* version, Node<T>* vertex, T total);
     int getAdjecentNodes(Node<T>* vertex);
     int getNumberOfNodes() const;
+    Node<T>* getRoot() const;
     void displayHead(Node<T>* vertex) const;
 };
 //bool seen
