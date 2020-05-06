@@ -144,15 +144,15 @@ T Graph<T>::traverse(int * version, Node<T>* vertex, T total){
             }
             std::cout << "traversering from ";
             displayHead(head[0]);
-            total=traverse(++version, head[curr->getIdentifier()], total);
+            total=traverse(++version, curr, total);
         }
     }
     else{
         std::cout << "to ";
         displayHead(vertex);
-        seen[vertex->getIdentifier()];
+        seen[vertex->getIdentifier()]=true;
         total=total+vertex->getItem();
-        Node<T>* curr=vertex->getNext();
+        Node<T>* curr=head[vertex->getIdentifier()];
         int Nodes=0;
         bool breakcase=false;
         for(int index=0; breakcase==true||index!=*version; curr=curr->getNext()){
@@ -165,15 +165,19 @@ T Graph<T>::traverse(int * version, Node<T>* vertex, T total){
                     breakcase=true;
                 }
                 else{
-                    curr=vertex;
+                    curr=head[vertex->getIdentifier()];
                 }
             }
         }
         if(breakcase==true){
-            total=traverse(version, head[0], total);
+            curr=head[vertex->getIdentifier()];
+            while(curr->getIdentifier()!=head[0]->getIdentifier()){
+                curr=curr->getNext();
+            }
+            total=traverse(version, curr, total);
         }
         else{
-            total=traverse(++version, head[curr->getIdentifier()],total);
+            total=traverse(++version, curr,total);
         }
     }
     return total;
