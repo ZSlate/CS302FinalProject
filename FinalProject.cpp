@@ -3,7 +3,7 @@
 
 int main(int argc, const char * argv[])
 {
-    int numberOfVertices = 5;
+    int numberOfVertices = 5, weight;
     Edge<int> cityEdges[8];
     cityEdges[0].setStart(3);
     cityEdges[0].setEnd(4);
@@ -33,7 +33,8 @@ int main(int argc, const char * argv[])
     
     Graph<int> cityGraph(cityEdges, numberOfEdges, numberOfVertices);
     cityGraph.displayAdjacencyList();
-    std::cout << std::endl;
+    std::cout << std::endl << std::endl;
+    cityGraph.traverse(0, *cityGraph.head, weight);
     
     
     return 0;
