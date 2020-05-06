@@ -34,7 +34,34 @@ int main(int argc, const char * argv[])
     Graph<int> cityGraph(cityEdges, numberOfEdges, numberOfVertices);
     cityGraph.displayAdjacencyList();
     std::cout << std::endl << std::endl;
-    cityGraph.traverse(0, *cityGraph.head, weight);
+    int miles[8];
+    int version[5]={0,0,1,1,1};
+    for(int index=0; index<8; ++index){
+        if(index%2!=0){
+            version[0]=(index/2)+1;
+            version[1]=2;
+            miles[index]=cityGraph(&vertex[0], cityGraph.getRoot(), 0);
+        }
+        else{
+            version[0]=(index/2)+1;
+            version[1]=1;
+            miles[index]=cityGraph(&vertex[0], cityGraph.getRoot(), 0);
+        }
+        std::cout << "total miles is: " << miles[index] << std::endl;
+    }
+    int least=miles[0];
+    int leastVersion=0;
+    for(int index=0; index<8;++index){
+        if(least>miles[index]){
+            least=miles[index];
+            leastVersion=index;
+        }
+    }
+    version[0]=(leastVersion/2)+1;
+    version[1]=(leastVersion%2)+1;
+    std::cout << "cheapest route will take: " << least << " miles" << std::endl;
+    std::cout << "by ";
+    cityGraph(&version[0], cityGraph.getRoot(), 0);
     
     
     return 0;
