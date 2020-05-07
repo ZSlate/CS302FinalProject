@@ -155,18 +155,22 @@ T Graph<T>::traverse(int * version, Node<T>* vertex, T total){
         Node<T>* curr=head[vertex->getIdentifier()];
         int Nodes=0;
         bool breakcase=false;
-        for(int index=0; breakcase==true||index!=*version; curr=curr->getNext()){
-            if(seen[curr->getIdentifier()]==false){
-                ++index;
-            }
-            ++Nodes;
-            if(Nodes==getAdjecentNodes(vertex)){
+        int index=0;
+        while(breakcase!=true&&index!=*version){
+            if(Nodes==getAdjecentNodes(head[vertex->getIdentifier()])){
                 if(index==0){
                     breakcase=true;
                 }
                 else{
                     curr=head[vertex->getIdentifier()];
                 }
+            }
+            if(curr!=nullptr&&seen[curr->getIdentifier()]==false){
+                ++index;
+            }
+            ++Nodes;
+            if(curr!=nullptr&&index!=*vertex){
+                curr=curr->getNext();
             }
         }
         if(breakcase==true){
@@ -185,8 +189,8 @@ T Graph<T>::traverse(int * version, Node<T>* vertex, T total){
 
 template <class T>
 int Graph<T>::getAdjecentNodes(Node<T>* vertex){
-    int total;
-    for(Node<T>* curr=head[vertex]; curr!=nullptr;curr=curr->getNext()){
+    int total=0;
+    for(Node<T>* curr=head[vertex->getIdentifier()]; curr!=nullptr;curr=curr->getNext()){
         ++total;
     }
     return total;
