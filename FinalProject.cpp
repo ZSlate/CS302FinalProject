@@ -40,12 +40,12 @@ int main(int argc, const char * argv[])
         if(index%2!=0){
             version[0]=(index/2)+1;
             version[1]=2;
-            miles[index]=cityGraph(&vertex[0], cityGraph.getRoot(), 0);
+            miles[index]=cityGraph.traverse(&version[0], cityGraph.getRoot(), 0);
         }
         else{
             version[0]=(index/2)+1;
             version[1]=1;
-            miles[index]=cityGraph(&vertex[0], cityGraph.getRoot(), 0);
+            miles[index]=cityGraph.traverse(&version[0], cityGraph.getRoot(), 0);
         }
         std::cout << "total miles is: " << miles[index] << std::endl;
     }
@@ -61,7 +61,7 @@ int main(int argc, const char * argv[])
     version[1]=(leastVersion%2)+1;
     std::cout << "cheapest route will take: " << least << " miles" << std::endl;
     std::cout << "by ";
-    cityGraph(&version[0], cityGraph.getRoot(), 0);
+    cityGraph.traverse(&version[0], cityGraph.getRoot(), 0);
     
     
     return 0;
